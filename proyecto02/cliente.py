@@ -2,7 +2,7 @@
 from multiprocessing.connection import Client
 from pickle import dumps
 from states import Automata
-from CODES import START, CATCH, MSG
+from CODES import START, CATCH, MSG, SESSION
 from functions import save_and_show_image
 
 host = "localhost"
@@ -24,11 +24,38 @@ automata = Automata(sock)
 # Success conexion.
 automata.recive()
 
+SSESSION = False
+
+print("USER:")
+usr = input()
+print("PASS:")
+pwd = input()
+
+"""   SESSION     """
+#State: K1
+print(SESSION(70))
+# Goto(K1, 70) -> K2
+sock.send(dumps([70, "-",  usr,pwd]))
+
+# State: K3
+while not SSESSION:
+  automata.recive()
+
+  #Goto S0
+  if automata.code == 71:
+    SSESSION = True
+  elif automata.code == 61:
+    print("USER:")
+    usr = input()
+    print("PASS:")
+    pwd = input()
+    # Goto(K3, 70) -> K2
+    sock.send(dumps([70, "-", usr, pwd]))
+
 CODE = 0
 """     START OF GAME     """
-
 #State: S0
-while True:
+while SSESSION:
   if CODE == 0:
     # Goto(S0, 10) -> S1
     automata.gotoS(dumps([10,START]),[10])
@@ -66,7 +93,7 @@ while True:
     automata.gotoS(dumps([0,MSG]), [31, 32])
   # S7
   elif CODE == 22:
-    save_and_show_image(automata.name,automata.image)
+    save_and_show_image(automata.dat1,automata.dat2)
     """   Goto: S3 | S4   """
     # Goto(S6, 31) -> S4
     # Goto(S6, 32) -> S3
