@@ -1,6 +1,5 @@
 from random import randint
-from PIL import Image
-import io
+
 
 class Pokemon:
     def __init__(self, id, name, capture, scurry):
@@ -18,13 +17,11 @@ class Pokemon:
         return s
 
     def get_image(self):
-        src = "pokemons/"+self.id+".png"
+        src = "POKEMONS/"+self.id+".png"
         print(src)
         with open(src, "rb") as imageFile:
             f = imageFile.read()
-            print("AM")
             b = bytearray(f)
-            print("BM")
         return b
 
 
@@ -37,19 +34,23 @@ def get_pokemon():
 
     return Pokemon(*pokemon)
 
-def save_and_show_image(name,image_data):
-    image = Image.open(io.BytesIO(image_data))
-    #path = "pokedex/"+id_usr+"/"+name+".png"
-    path = "pokedex/"+name+".png"
-    image.save(path)
-    image.show()
-
 def check_user(usr, pwd):
     users = open("DB/USERS.txt","r")
     user_data = users.readline()
     while user_data:
         user, password = user_data.strip().split(",")
         if user == usr and password == pwd:
-            return True
+            return user
         user_data = users.readline()
     return False
+
+def add_pokemon_to_pokedex(pokemon, user):
+    users = open("DB/POKEDEX/"+user+".txt", "a")
+    users.write(str(pokemon))
+    users.write("_______________________________________")
+
+def POKEDEX(user):
+    path = "DB/POKEDEX/"+user+".txt"
+
+    with open(path, "r") as POKEDEX:
+        return POKEDEX.read()

@@ -11,13 +11,13 @@ def SESSION(code):
     switcher = {
         70: "Asking for start session...\n",
         71: "SESSION STARTED!\n",
-        72: "Asking for pokemons in POKEDEX...\n",
+        72: "SEE POKEMONS in POKEDEX...\n",
         73: "Showing POKEDEX:\n"
     }
 
     return switcher.get(code)
 
-START = "Ask for a Pokemon to catch it [10]:\n"
+START = "Ask for a Pokemon to catch it!\n"
 
 def SERVER(code=0,k = 0, id_pok = "",name = ""):
     switcher = {
@@ -39,8 +39,10 @@ def CLIENT(code):
 
     return switcher.get(code)
 
+PRINCIPAL = "WHAT DO YOU WANT TO DO?\n\t[10] "+START+"\t[72] "+SESSION(72)
+
 CATCH = "DO YOU WANT TO CATCH THE POKEMON?\n"
-CATCH += "[30]"+CLIENT(30)+"[31]"+CLIENT(31)+"[32]"+CLIENT(32)
+CATCH += "\t[30] "+CLIENT(30)+"\t[31] "+CLIENT(31)+"\t[32] "+CLIENT(32)
 
 MSG = "DO YOU STILL WANT TO PLAY?\n"
-MSG += "[31]"+CLIENT(30)+"[32]"+CLIENT(31)
+MSG += "\t[31] "+CLIENT(30)+"\t[32] "+CLIENT(31)
