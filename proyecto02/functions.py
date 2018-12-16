@@ -43,3 +43,13 @@ def save_and_show_image(name,image_data):
     path = "pokedex/"+name+".png"
     image.save(path)
     image.show()
+
+def check_user(usr, pwd):
+    users = open("DB/USERS.txt","r")
+    user_data = users.readline()
+    while user_data:
+        user, password = user_data.strip().split(",")
+        if user == usr and password == pwd:
+            return True
+        user_data = users.readline()
+    return False
