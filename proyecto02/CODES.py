@@ -1,17 +1,17 @@
 def ERROR(code):
     switcher = {
-        60: "ERROR: wrong code. Select one code from the options...",
-        61: "ERROR: start of session failed...",
-        62: "ERROR: conecting to database.\n"
+        60: "ERROR: Wrong code. Select one code from the options...",
+        61: "ERROR: Start of session failed. Incorrect info.\nTry again...\n",
+        62: "ERROR: Conecting to database.\n"
     }
 
     return switcher.get(code)
 
 def SESSION(code):
     switcher = {
-        70: "Asking for start session...",
+        70: "Asking for start session...\n",
         71: "SESSION STARTED!\n",
-        72: "Asking for pokemons in POKEDEX...",
+        72: "Asking for pokemons in POKEDEX...\n",
         73: "Showing POKEDEX:\n"
     }
 
