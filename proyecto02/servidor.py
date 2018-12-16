@@ -3,9 +3,9 @@ from multiprocessing.connection import Listener
 import threading
 from pickle import dumps
 from states import Automata
-from CODES import SERVER
+from CODES import SERVER, SESSION, ERROR
 from random import randint
-from functions import get_pokemon, Pokemon
+from functions import get_pokemon, check_user
 
 host = "localhost"
 port = 9999
@@ -26,8 +26,24 @@ def worker(*args):
         data = dumps([0,"Conexion success!\n"])
         automata.gotoS(data)
 
+        SSESSION = False
+
+        # K2
+        while not SSESSION:
+            automata.recive()
+
+            if automata.code == 70:
+                SSESSION = check_user(automata.dat1, automata.dat2)
+
+            if SSESSION:
+                # Goto(K2, 71) -> S0
+                automata.gotoS(dumps([71,SESSION(71)]))
+            else:
+                # Goto(K2, 61) -> K3
+                automata.gotoS(dumps([61, ERROR(61)]))
+
         CODE = 0
-        while True:
+        while SSESSION:
             if CODE == 0:
                 # Attemps
                 K = 7
@@ -57,25 +73,25 @@ def worker(*args):
                 K -= 1
                 """     Goto: S8 | S7 | S6      """
                 if randint(0,100) <= p.scurry:
-                    print("SCURRY!")
+                    #print("SCURRY!")
                     # Goto(S5, 24) -> SH
                     data = dumps([24, SERVER(24,p.name)])
                     automata.gotoS(data)
                 if K == 0:
-                    print("NOATT!")
+                    #print("NOATT!")
                     # Goto(S5, 23) -> S6
                     data = dumps([23, SERVER(23)])
                     automata.gotoS(data)
                 elif randint(0,100) <= p.capture:
-                    print("CAPTUREE!")
+                    #print("CAPTUREE!")
                     # Goto(S5, 22) -> S7
                     image_byte = p.get_image()
-                    print(image_byte)
+                    #print(image_byte)
                     data = dumps([22,SERVER(22),p.name,image_byte])
                     automata.gotoS(data)
                     #automata.gotoS(22)
                 else:
-                    print("TRYAGAIN!")
+                    #print("TRYAGAIN!")
                     # Goto(S5, 21) -> S8
                     data = dumps([21, SERVER(21,id_pok=p.id,k=K)])
                     automata.gotoS(data)
