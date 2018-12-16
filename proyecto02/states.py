@@ -7,8 +7,10 @@ class Automata:
         self.socket = socket
         self.server = server
         self.code = 0
-        self.name = ""
-        self.image = None
+        # Name | User
+        self.dat1 = ""
+        # Image | Password
+        self.dat2 = ""
     """
         Goto(S_{act},code) -> S_{next} or Goto(S0,*/{10}) -> S60
     """
@@ -28,13 +30,13 @@ class Automata:
             print(ERROR(60), "\n")
             print(msg)
             code = input()
+        print(code)
 
         self.socket.send(dumps([int(code), "-"]))
 
     def recive(self):
         data = self.socket.recv()
         data = loads(data)
-        print("LEN",len(data))
 
         if data[0] != 0:
             print("\nCode_recived:", data[0])
@@ -43,8 +45,8 @@ class Automata:
         print(data[1])
 
         if len(data) > 2:
-            self.name = data[2]
-            self.image = data[3]
+            self.dat1 = data[2]
+            self.dat2 = data[3]
 
     def end(self):
         print("Good Bye!!")
