@@ -2,12 +2,12 @@ from pickle import dumps, loads
 
 from CODES import ERROR
 
-"""
-    AUTOMATON CLASS
-    - socket : socket through which the communication will be established.
-    - server : <boolean> indicates if the socket is a server socket.
-"""
 class Automata:
+    """
+        AUTOMATON CLASS
+        :param socket: socket through which the communication will be established.
+        :param server: <boolean> indicates if the socket is a server socket.
+    """
     def __init__(self, socket, server=False):
         self.socket = socket
         self.server = server
@@ -16,12 +16,13 @@ class Automata:
         self.dat1 = ""
         # Image | Password
         self.dat2 = ""
-    """
-        Represent the function Goto in the automaton.
-        Goto(S_{act},code) -> S_{next} or Goto(S0,*/{10}) -> S60
-        - data : data to send through the socket.
-    """
+
     def gotoS(self, data, codes=[]):
+        """
+            Represent the function Goto in the automaton.
+            Goto(S_{act},code) -> S_{next} or Goto(S0,*/{10}) -> S60
+            :param data: data to send through the socket.
+        """
         if self.server:
             self.socket.send(data)
             return
@@ -41,10 +42,10 @@ class Automata:
 
         self.socket.send(dumps([int(code), "-"]))
 
-    """
-        Recive the data throught the socket.
-    """
     def recive(self):
+        """
+            Recive the data throught the socket.
+        """
         data = self.socket.recv()
         data = loads(data)
 
@@ -58,10 +59,10 @@ class Automata:
             self.dat1 = data[2]
             self.dat2 = data[3]
 
-    """
-        End the conexión.
-        FINAL STATE.
-    """
     def end(self):
+        """
+            End the conexión.
+            FINAL STATE.
+        """
         print("Good Bye!!")
         self.socket.close()

@@ -8,6 +8,16 @@ from random import randint
 from Sfunctions import get_pokemon, check_user, pokedex
 from Sfunctions import add_pokemon_to_pokedex
 
+"""
+server.py:
+    MAIN PROGRAM
+"""
+__author__ = "Maria Fernanda Gonzalez Chavez"
+__maintainer__ = "Maria Ximena Lezama Hernandez"
+__email__ = "fernandagch@ciencias.unam.mx lezama@ciencias.unam.mx"
+__copyright__ = "Copyright 2018"
+__version__ = "0.1"
+
 host = "localhost"
 port = 9999
 

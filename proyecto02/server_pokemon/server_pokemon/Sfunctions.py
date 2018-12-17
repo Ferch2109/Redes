@@ -1,24 +1,34 @@
 from random import randint
 import os
+"""
+Sfunctions.py:
+    Auxiliary functions for main program. To get correct format data.
+"""
+__author__ = "Maria Fernanda Gonzalez Chavez"
+__maintainer__ = "Maria Ximena Lezama Hernandez"
+__email__ = "fernandagch@ciencias.unam.mx lezama@ciencias.unam.mx"
+__copyright__ = "Copyright 2018"
+__version__ = "0.1"
 
-"""
-    POKEMON CLASS
-    - id : pokemon's id.
-    - name : pokemon's name.
-    - capture : ratio of capture in percent. 
-    - scurry : pokemon's capacity to go away.
-"""
 class Pokemon:
+    """
+        POKEMON CLASS
+        :param id: pokemon's id.
+        :param name: pokemon's name.
+        :param capture: ratio of capture in percent.
+        :param scurry: pokemon's capacity to go away.
+        :returns: pokemon object.
+    """
     def __init__(self, id, name, capture, scurry):
         self.id = id
         self.name = name
         self.capture = int(capture)
         self.scurry = int(scurry)
 
-    """
-        Return a string with the pokemon information.
-    """
     def __str__(self):
+        """
+            :returns: String with the pokemon information.
+        """
         s  = "idPokemon: "+self.id+"\n"
         s += "Name: "+self.name+"\n"
         s += "Capture: "+str(self.capture)+"\n"
@@ -26,10 +36,10 @@ class Pokemon:
 
         return s
 
-    """
-        Returns the corresponding image to the pokemon in byte format.
-    """
     def get_image(self):
+        """
+            :returns: corresponding image to the pokemon in byte format.
+        """
         src = "POKEMONS/"+self.id+".png"
         print(src)
         with open(src, "rb") as imageFile:
@@ -37,25 +47,26 @@ class Pokemon:
             b = bytearray(f)
         return b
 
-"""
-    Return an aleatory Pokemon object.
-"""
 def get_pokemon():
+    """
+        Get an aleatory pokemon from DB.
+        :return: Pokemon object.
+    """
     DB = open("DB/POKEMON.txt","r")
     line = randint(1,50)
 
-    pokemon = DB.readlines()[:line][-1]
+    pokemon = DB.readlines()[:line][    :param ]
     pokemon = pokemon.strip().split(",")
 
     return Pokemon(*pokemon)
 
-"""
-    Check that a user already exists and that the password is correct.
-    - usr : user name.
-    - pwd : password user.
-    if the is no user corresponding to the data returns False.
-"""
 def check_user(usr, pwd):
+    """
+        Check that a user already exists and that the password is correct.
+        :param usr: user name.
+        :param pwd: password user.
+        :returns: False if the user is not in DB | wrong password.
+    """
     users = open("DB/USERS.txt","r")
     user_data = users.readline()
     while user_data:
@@ -65,21 +76,22 @@ def check_user(usr, pwd):
         user_data = users.readline()
     return False
 
-"""
-    Save the catched pokemon in the register of the actual user.
-    - pokemon : obtained string from a Pokemon object.
-    - user : user name 
-"""
 def add_pokemon_to_pokedex(pokemon, user):
+    """
+        Save the catched pokemon in the register of the actual user.
+        :param pokemon: obtained string from a Pokemon object.
+        :param user: user name
+    """
     users = open("DB/POKEDEX/"+user+".txt", "a")
     users.write(str(pokemon))
     users.write("_______________________________________")
 
-"""
-    Return all the pokemons catched by the user.
-    - user : user name
-"""
 def pokedex(user):
+    """
+        Return all the pokemons catched by the user.
+        :param user: user name
+        :returns: string of all the pokemons catched by the user.
+    """
     path = "DB/POKEDEX/"+user+".txt"
 
     if not os.path.isfile(path):
