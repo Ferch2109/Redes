@@ -1,0 +1,38 @@
+# Shell to use with Make
+SHELL := /bin/bash
+BOLD := \033[1m
+ROOT := ./
+BACK := ../
+DIR_P = Redes/
+DIR_PATH = Redes/proyecto02/client_pokemon
+DIR = client_pokemon/
+# Set important Paths
+PROJECT_GIT := git@github.com:Ferch2109/Redes.git
+
+# Export targets not associated with files
+.PHONY: test coverage pip virtualenv clean publish
+
+help:
+	@echo "Makefile rules:"
+	@echo "  help      - This."
+	@echo "  install   - Install packages and create necessary directories."
+	@echo "  uninstall - Delete the app."
+	@echo "  clean     - Delete cache."
+
+install:
+	git clone $(PROJECT_GIT)
+	cp -r $(DIR_PATH) $(ROOT)
+	rm -rf $(DIR_P)
+	cd $(DIR) &&  echo -e "$(BOLD)installing $(shell python setup.py --name) $(shell python setup.py --version)"
+	cd $(DIR) &&  pip3 install -r requirements.txt
+	cd $(DIR) &&  mkdir "$(shell python setup.py --name)/POKEDEX"
+
+# Clean build files
+uninstall:
+	cd $(BACK) && -rm -rf $(DIR)
+
+# Clean build files
+clean:
+	rm -rf "$(PROJECT_NAME)/POKEDEX/"
+	mkdir "$(PROJECT_NAME)/POKEDEX"
+	cd $(BACK)

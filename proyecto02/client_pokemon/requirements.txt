@@ -1,0 +1,2 @@
+# Utilities
+Pillow==5.3.0
