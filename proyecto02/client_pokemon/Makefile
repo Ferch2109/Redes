@@ -1,6 +1,7 @@
 # Shell to use with Make
 SHELL := /bin/bash
 BOLD := \033[1m
+MAIN := client.py
 ROOT := ./
 BACK := ../
 DIR_P = Redes/
@@ -22,10 +23,13 @@ install:
 help:
 	@echo "Makefile rules:"
 	@echo "  help      - This."
+	@echo "  run      - Run main program."
 	@echo "  install   - Install packages and create necessary directories."
 	@echo "  uninstall - Delete the app."
 	@echo "  clean     - Delete cache."
 
+run:
+	python $(DIR)$(MAIN)
 # Clean build files
 uninstall:
 	cd $(BACK) && rm -rf $(DIR)
