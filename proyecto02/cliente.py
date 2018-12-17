@@ -68,6 +68,7 @@ while SSESSION:
     # Goto S0
     if automata.code == 73:
         PLAY = False
+        print(automata.dat1)
         continue
     # S2
     elif automata.code == 20:
