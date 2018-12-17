@@ -3,7 +3,10 @@ import os
 
 """
     POKEMON CLASS
-    
+    - id : pokemon's id.
+    - name : pokemon's name.
+    - capture : ratio of capture in percent. 
+    - scurry : pokemon's capacity to go away.
 """
 class Pokemon:
     def __init__(self, id, name, capture, scurry):
@@ -12,6 +15,9 @@ class Pokemon:
         self.capture = int(capture)
         self.scurry = int(scurry)
 
+    """
+        Return a string with the pokemon information.
+    """
     def __str__(self):
         s  = "idPokemon: "+self.id+"\n"
         s += "Name: "+self.name+"\n"
@@ -20,6 +26,9 @@ class Pokemon:
 
         return s
 
+    """
+        Returns the corresponding image to the pokemon in byte format.
+    """
     def get_image(self):
         src = "POKEMONS/"+self.id+".png"
         print(src)
@@ -28,7 +37,9 @@ class Pokemon:
             b = bytearray(f)
         return b
 
-
+"""
+    Return an aleatory Pokemon object.
+"""
 def get_pokemon():
     DB = open("DB/POKEMON.txt","r")
     line = randint(1,50)
@@ -38,6 +49,12 @@ def get_pokemon():
 
     return Pokemon(*pokemon)
 
+"""
+    Check that a user already exists and that the password is correct.
+    - usr : user name.
+    - pwd : password user.
+    if the is no user corresponding to the data returns False.
+"""
 def check_user(usr, pwd):
     users = open("DB/USERS.txt","r")
     user_data = users.readline()
@@ -48,11 +65,20 @@ def check_user(usr, pwd):
         user_data = users.readline()
     return False
 
+"""
+    Save the catched pokemon in the register of the actual user.
+    - pokemon : obtained string from a Pokemon object.
+    - user : user name 
+"""
 def add_pokemon_to_pokedex(pokemon, user):
     users = open("DB/POKEDEX/"+user+".txt", "a")
     users.write(str(pokemon))
     users.write("_______________________________________")
 
+"""
+    Return all the pokemons catched by the user.
+    - user : user name
+"""
 def pokedex(user):
     path = "DB/POKEDEX/"+user+".txt"
 
