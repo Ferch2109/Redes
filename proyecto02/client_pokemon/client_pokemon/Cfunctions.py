@@ -1,14 +1,23 @@
 from PIL import Image
 import io
 import os
+"""
+Cfunctions.py:
+    Auxiliary functions for main program. To get correct format data.
+"""
+__author__ = "Maria Fernanda Gonzalez Chavez"
+__maintainer__ = "Maria Ximena Lezama Hernandez"
+__email__ = "fernandagch@ciencias.unam.mx lezama@ciencias.unam.mx"
+__copyright__ = "Copyright 2018"
+__version__ = "0.1"
 
-"""
-    Saves the image of the catched pokemon in a directory named as the user.
-    - id : pokemon's id
-    - user : user name
-    - image_data : pokemon's image in byte array
-"""
 def save_and_show_image(id,user,image_data):
+    """
+        Saves the image of the catched pokemon in a directory named as the user.
+       :param id: pokemon's id
+       :param user: user name
+       :param image_data: pokemon's image in byte array
+    """
     if not os.path.exists("POKEDEX/"+user+"/"):
         os.mkdir("POKEDEX/"+user)
 
