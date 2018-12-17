@@ -99,7 +99,7 @@ while SSESSION:
         automata.gotoS(dumps([0,MSG]), [31, 32])
     # S7
     elif CODE == 22:
-        save_and_show_image(automata.dat1,SESSION,automata.dat2)
+        save_and_show_image(automata.dat1,SSESSION,automata.dat2)
         """   Goto: S3 | S4   """
         # Goto(S6, 31) -> S4
         # Goto(S6, 32) -> S3
