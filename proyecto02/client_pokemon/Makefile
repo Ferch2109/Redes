@@ -9,8 +9,15 @@ DIR = client_pokemon/
 # Set important Paths
 PROJECT_GIT := git@github.com:Ferch2109/Redes.git
 
-# Export targets not associated with files
-.PHONY: test coverage pip virtualenv clean publish
+install:
+	git clone $(PROJECT_GIT)
+	cp -r $(DIR_PATH) $(ROOT)
+	rm -rf $(DIR_P)
+	cd $(DIR) &&  echo -e "$(BOLD)installing $(DIR) $(shell python setup.py --version)"
+	cd $(DIR) &&  pip3 install -r requirements.txt
+	mkdir "$(DIR)$(DIR)POKEDEX"
+	echo -e "$(BOLD) Successfully installed.\n Name of directory: $(DIR)"
+	rm "Makefile"
 
 help:
 	@echo "Makefile rules:"
@@ -19,17 +26,9 @@ help:
 	@echo "  uninstall - Delete the app."
 	@echo "  clean     - Delete cache."
 
-install:
-	git clone $(PROJECT_GIT)
-	cp -r $(DIR_PATH) $(ROOT)
-	rm -rf $(DIR_P)
-	cd $(DIR) &&  echo -e "$(BOLD)installing $(shell python setup.py --name) $(shell python setup.py --version)"
-	cd $(DIR) &&  pip3 install -r requirements.txt
-	cd $(DIR) &&  mkdir "$(shell python setup.py --name)/POKEDEX"
-
 # Clean build files
 uninstall:
-	cd $(BACK) && -rm -rf $(DIR)
+	cd $(BACK) && rm -rf $(DIR)
 
 # Clean build files
 clean:
