@@ -1,7 +1,8 @@
 # Shell to use with Make
 SHELL := /bin/bash
 BOLD := \033[1m
-MAIN := server.py
+EXC_PATH := server_pokemon/dist/
+EXC := ./server
 ROOT := ./
 BACK := ../
 DIR_P := Redes/
@@ -23,13 +24,13 @@ install:
 help:
 	@echo "Makefile rules:"
 	@echo "  help      - This."
-	@echo "  run      - Run main program."
+	@echo "  run       - Run app server."
 	@echo "  install   - Install packages and create necessary directories."
 	@echo "  uninstall - Delete the app."
 	@echo "  clean     - Delete cache."
 
 run:
-	python $(DIR)$(MAIN) &
+	cd $(EXC_PATH) && $(EXC)
 # Clean build files
 uninstall:
 	cd $(BACK) && rm -rf $(DIR)

@@ -1,7 +1,8 @@
 # Shell to use with Make
 SHELL := /bin/bash
 BOLD := \033[1m
-MAIN := client.py
+EXC_PATH := client_pokemon/dist/
+EXC := ./client
 ROOT := ./
 BACK := ../
 DIR_P = Redes/
@@ -22,13 +23,13 @@ install:
 help:
 	@echo "Makefile rules:"
 	@echo "  help      - This."
-	@echo "  run      - Run main program."
+	@echo "  run       - Run client app."
 	@echo "  install   - Install packages and create necessary directories."
 	@echo "  uninstall - Delete the app."
 	@echo "  clean     - Delete cache."
 
 run:
-	@echo "Please execute by: client_pokemon/client.py [can't do this throught make file cause dependencies]"
+	cd $(EXC_PATH) && $(EXC)
 # Clean build files
 uninstall:
 	cd $(BACK) && rm -rf $(DIR)
