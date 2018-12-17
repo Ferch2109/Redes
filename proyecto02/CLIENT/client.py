@@ -5,19 +5,29 @@ from states import Automata
 from CODES import START, CATCH, MSG, SESSION,PRINCIPAL
 from Cfunctions import save_and_show_image
 
-host = "localhost"
-port = 9999
+#host = "localhost"
+#port = 9999
 
 print("Write IP Dir:")
 host = input()
+print("Write PORT:")
+port = input()
 
-while host != "localhost":
-  print("Error: Wrong IP - Try again...\n")
+#while host != "localhost" or port != "9999":
+while port != "9999":
+  print("Error: Wrong PORT [should be 9999]...\n")
   print("Write IP Dir:")
   host = input()
+  print("Write PORT:")
+  port = input()
 
+port = int(port)
 
-sock = Client((host, port))
+try:
+    sock = Client((host, port))
+except:
+    print("Can't connect to that dir IP.")
+    exit(404)
 
 automata = Automata(sock)
 
