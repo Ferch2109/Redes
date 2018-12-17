@@ -1,8 +1,8 @@
 # Shell to use with Make
 SHELL := /bin/bash
 BOLD := \033[1m
-EXC_PATH := client_pokemon/dist/
-EXC := ./client
+EXC_PATH := client_pokemon/
+EXC := ./client.py
 ROOT := ./
 BACK := ../
 DIR_P = Redes/
