@@ -5,7 +5,7 @@ MAIN := server.py
 ROOT := ./
 BACK := ../
 DIR_P := Redes/
-DIR_PATH := Redes/proyecto02/client_pokemon
+DIR_PATH := Redes/proyecto02/server_pokemon
 DIR := server_pokemon/
 DB := DB/
 # Set important Paths
