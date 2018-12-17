@@ -1,4 +1,6 @@
-#servidor
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 from multiprocessing.connection import Listener
 import threading
 from pickle import dumps
@@ -12,8 +14,8 @@ from Sfunctions import add_pokemon_to_pokedex
 server.py:
     MAIN PROGRAM
 """
-__author__ = "Maria Fernanda Gonzalez Chavez"
-__maintainer__ = "Maria Ximena Lezama Hernandez"
+__authora__ = "Maria Fernanda Gonzalez Chavez"
+__authorb__ = "Maria Ximena Lezama Hernandez"
 __email__ = "fernandagch@ciencias.unam.mx lezama@ciencias.unam.mx"
 __copyright__ = "Copyright 2018"
 __version__ = "0.1"
