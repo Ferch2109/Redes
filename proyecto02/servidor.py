@@ -5,7 +5,7 @@ from pickle import dumps
 from states import Automata
 from CODES import SERVER, SESSION, ERROR
 from random import randint
-from Sfunctions import get_pokemon, check_user, POKEDEX
+from Sfunctions import get_pokemon, check_user, pokedex
 from Sfunctions import add_pokemon_to_pokedex
 
 host = "localhost"
