@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 from pickle import dumps, loads
 
 from CODES import ERROR

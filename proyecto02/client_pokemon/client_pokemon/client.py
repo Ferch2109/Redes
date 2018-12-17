@@ -1,4 +1,6 @@
-#cliente
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 from multiprocessing.connection import Client
 from pickle import dumps
 from states import Automata
@@ -9,8 +11,8 @@ from Cfunctions import save_and_show_image
 client.py:
     MAIN PROGRAM
 """
-__author__ = "Maria Fernanda Gonzalez Chavez"
-__maintainer__ = "Maria Ximena Lezama Hernandez"
+__authora__ = "Maria Fernanda Gonzalez Chavez"
+__authorb__ = "Maria Ximena Lezama Hernandez"
 __email__ = "fernandagch@ciencias.unam.mx lezama@ciencias.unam.mx"
 __copyright__ = "Copyright 2018"
 __version__ = "0.1"
