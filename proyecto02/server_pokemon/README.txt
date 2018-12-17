@@ -1,19 +1,21 @@
-ONLY NEED TO DOWNLOAD MAKEFILE TO GET THE CLIENT APP
+ONLY NEED TO DOWNLOAD MAKEFILE TO GET THE SERVER APP
 
 Tree directory structure:
-./client_pokemon
-├── client_pokemon
-│   ├── Cfunctions.py
-│   ├── client.py
-│   ├── CODES.py
-│   ├── data_struct.py
-│   ├── internals.py
-│   └── states.py
+./server_pokemon
 ├── Makefile
-├── __pycache__
 ├── README.txt
-├── requirements.txt
+├── server_pokemon
+│   ├── CODES.py
+│   ├── DB
+│   │   ├── POKEMON.txt
+│   │   └── USERS.txt
+│   ├── POKEMONS
+│   │   └── images
+│   ├── server.py
+│   ├── Sfunctions.py
+│   └── states.py
 └── setup.py
+
 
 For more info about makefile run the next command:
 $ make help

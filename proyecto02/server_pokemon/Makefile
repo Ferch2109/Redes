@@ -1,58 +1,42 @@
-PROJECT_NAME := $(shell python setup.py --name)
-PROJECT_VERSION := $(shell python setup.py --version)
-
+# Shell to use with Make
 SHELL := /bin/bash
 BOLD := \033[1m
-DIM := \033[2m
-RESET := \033[0m
+MAIN := server.py
+ROOT := ./
+BACK := ../
+DIR_P := Redes/
+DIR_PATH := Redes/proyecto02/client_pokemon
+DIR := server_pokemon/
+DB := DB/
+# Set important Paths
+PROJECT_GIT := git@github.com:Ferch2109/Redes.git
 
-.PHONY: all
-all: uninstall install clean
-
-.PHONY: install
 install:
-	@echo -e "$(BOLD)installing $(PROJECT_NAME) $(PROJECT_VERSION)$(RESET)"
-	@echo -e -n "$(DIM)"
-	@pip3 install multiprocessing
-	@echo -e -n "$(RESET)"
+	git clone $(PROJECT_GIT)
+	cp -r $(DIR_PATH) $(ROOT)
+	rm -rf $(DIR_P)
+	cd $(DIR) &&  echo -e "$(BOLD)installing $(DIR) $(shell python setup.py --version)"
+	cd $(DIR) &&  pip3 install -r requirements.txt
+	mkdir "$(DIR)$(DIR)$(DB)POKEDEX"
+	echo -e "$(BOLD) Successfully installed.\n Name of directory: $(DIR)"
+	rm "Makefile"
 
-.PHONY: uninstall
+help:
+	@echo "Makefile rules:"
+	@echo "  help      - This."
+	@echo "  run      - Run main program."
+	@echo "  install   - Install packages and create necessary directories."
+	@echo "  uninstall - Delete the app."
+	@echo "  clean     - Delete cache."
+
+run:
+	python $(DIR)$(MAIN)
+# Clean build files
 uninstall:
-	@echo -e "$(BOLD)uninstalling '$(PROJECT_NAME)'$(RESET)"
-	-@pip uninstall -y $(PROJECT_NAME) 2> /dev/null
+	cd $(BACK) && rm -rf $(DIR)
 
-.PHONY: test
-test: uninstall install
-	@echo -e "$(BOLD)running test units for $(PROJECT_NAME) $(PROJECT_VERSION)$(RESET)"
-	@python -m unittest discover -s tests -p 'tests_*.py' --verbose
-	@rm -rf tests/*.pyc
-
-.PHONY: lint
-lint:
-	@echo -e "$(BOLD)analyzing code for $(PROJECT_NAME) $(PROJECT_VERSION)$(RESET)"
-	-@pylint bin/* lib/**/*.py \
-		--output-format text --reports no \
-		--msg-template "{path}:{line:04d}:{obj} {msg} ({msg_id})" \
-		| sort | awk \
-			'/[RC][0-9]{4}/ {print "\033[2m" $$0 "\033[0m"};\
-			 /[EF][0-9]{4}/ {print "\033[1m" $$0 "\033[0m"};\
-			 /W[0-9]{4}/ {print};'
-
-.PHONY: doc
-doc:
-	@echo -e "$(BOLD)building documentation for $(PROJECT_NAME) $(PROJECT_VERSION)$(RESET)"
-	@echo -e -n "$(DIM)"
-	@cd doc && $(MAKE) html
-	@echo -e -n "$(RESET)"
-
-.PHONY: dist
-dist:
-	@echo -e "$(BOLD)packaging $(PROJECT_NAME) $(PROJECT_VERSION)$(RESET)"
-	@echo -e -n "$(DIM)"
-	@python setup.py sdist --formats=zip --dist-dir=dist
-	@echo -e -n "$(RESET)"
-
-.PHONY: clean
+# Clean build files
 clean:
-	@echo -e "$(BOLD)cleaning $(PROJECT_NAME) $(PROJECT_VERSION) repository$(RESET)"
-	@rm -rf build dist $(PROJECT_NAME).egg-info
+	rm -rf "$(DIR)$(DB)POKEDEX/"
+	mkdir "$(DIR)$(DB)POKEDEX"
+	cd $(BACK)
