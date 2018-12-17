@@ -15,7 +15,6 @@ install:
 	cp -r $(DIR_PATH) $(ROOT)
 	rm -rf $(DIR_P)
 	cd $(DIR) &&  echo -e "$(BOLD)installing $(DIR) $(shell python setup.py --version)"
-	cd $(DIR) &&  pip3 install -r requirements.txt
 	mkdir "$(DIR)$(DIR)POKEDEX"
 	echo -e "$(BOLD) Successfully installed.\n Name of directory: $(DIR)"
 	rm "Makefile"
@@ -36,6 +35,6 @@ uninstall:
 
 # Clean build files
 clean:
-	rm -rf "$(PROJECT_NAME)/POKEDEX/"
-	mkdir "$(PROJECT_NAME)/POKEDEX"
+	rm -rf "$(DIR)POKEDEX/"
+	mkdir "$(DIR)POKEDEX/"
 	cd $(BACK)
