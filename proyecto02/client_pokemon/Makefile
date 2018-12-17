@@ -28,7 +28,7 @@ help:
 	@echo "  clean     - Delete cache."
 
 run:
-	python $(DIR)$(MAIN)
+	python $(DIR)$(MAIN) &
 # Clean build files
 uninstall:
 	cd $(BACK) && rm -rf $(DIR)
