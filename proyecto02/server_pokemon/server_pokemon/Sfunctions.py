@@ -55,7 +55,7 @@ def get_pokemon():
     DB = open("DB/POKEMON.txt","r")
     line = randint(1,50)
 
-    pokemon = DB.readlines()[:line][    :param ]
+    pokemon = DB.readlines()[:line][-1]
     pokemon = pokemon.strip().split(",")
 
     return Pokemon(*pokemon)
