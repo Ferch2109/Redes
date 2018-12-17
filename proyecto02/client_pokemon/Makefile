@@ -28,7 +28,7 @@ help:
 	@echo "  clean     - Delete cache."
 
 run:
-	python $(DIR)$(MAIN) &
+	@echo "Please execute by: client_pokemon/client.py [can't do this throught make file cause dependencies]"
 # Clean build files
 uninstall:
 	cd $(BACK) && rm -rf $(DIR)
