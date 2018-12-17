@@ -86,7 +86,7 @@ def add_pokemon_to_pokedex(pokemon, user):
     """
     users = open("DB/POKEDEX/"+user+".txt", "a")
     users.write(str(pokemon))
-    users.write("_______________________________________")
+    users.write("_______________________________________\n")
 
 def pokedex(user):
     """
