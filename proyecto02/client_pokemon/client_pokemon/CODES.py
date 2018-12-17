@@ -1,3 +1,6 @@
+"""
+ENUMERACIONES
+"""
 def ERROR(code):
     """
         ENUM: Error Codes
