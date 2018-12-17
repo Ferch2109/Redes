@@ -1,5 +1,8 @@
 ONLY NEED TO DOWNLOAD MAKEFILE TO GET THE SERVER APP
 
+To install run
+$ make
+
 For more info about makefile run the next command:
 $ make help
 
