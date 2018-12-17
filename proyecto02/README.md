@@ -63,7 +63,7 @@ After installation and begin positioned in the directory of program do:
 
 ```
   $ make run
-``
+```
 for run the program
 
 ## Authors
