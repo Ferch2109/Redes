@@ -1,5 +1,5 @@
 from random import randint
-
+import os
 
 class Pokemon:
     def __init__(self, id, name, capture, scurry):
@@ -49,8 +49,15 @@ def add_pokemon_to_pokedex(pokemon, user):
     users.write(str(pokemon))
     users.write("_______________________________________")
 
-def POKEDEX(user):
+def pokedex(user):
     path = "DB/POKEDEX/"+user+".txt"
 
-    with open(path, "r") as POKEDEX:
-        return POKEDEX.read()
+    if not os.path.isfile(path):
+        print("AAA")
+        result = "Seems you have not captured any pokemon ):\n"
+        result += "_______________________________________"
+    else:
+        with open(path, "r") as POKEDEX:
+            result = POKEDEX.read()
+
+    return result
