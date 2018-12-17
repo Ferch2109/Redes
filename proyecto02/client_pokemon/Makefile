@@ -28,7 +28,7 @@ help:
 
 # Clean build files
 uninstall:
-	cd $(BACK) && rm -rf $(DIR)
+	cd $(BACK)$(BACK) && rm -rf $(DIR)
 
 # Clean build files
 clean:
