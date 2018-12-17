@@ -2,7 +2,9 @@ TUTORIAL
 ==============
 
 Execute:
-$ make run
+$ python client_pokemon/client.py
+
+Can't do througth makefile cause the libraries used didn't have option for that.
 
 for run the app
 
