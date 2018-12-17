@@ -3,6 +3,9 @@ ONLY NEED TO DOWNLOAD MAKEFILE TO GET THE CLIENT APP
 For more info about makefile run the next command:
 $ make help
 
+To see the documentation run:
+$ firefox DOC/_build/html/index.html
+
 Tree directory structure:
 
 ./client_pokemon
