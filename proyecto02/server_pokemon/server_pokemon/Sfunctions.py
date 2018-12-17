@@ -1,6 +1,10 @@
 from random import randint
 import os
 
+"""
+    POKEMON CLASS
+    
+"""
 class Pokemon:
     def __init__(self, id, name, capture, scurry):
         self.id = id
