@@ -10,7 +10,7 @@ DIR_PATH := Redes/proyecto02/server_pokemon
 DIR := server_pokemon/
 DB := DB/
 # Set important Paths
-PROJECT_GIT := git@github.com:Ferch2109/Redes.git
+PROJECT_GIT := https://github.com/Ferch2109/Redes.git
 
 install:
 	git clone $(PROJECT_GIT)

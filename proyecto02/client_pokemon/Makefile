@@ -9,14 +9,13 @@ DIR_P = Redes/
 DIR_PATH = Redes/proyecto02/client_pokemon
 DIR = client_pokemon/
 # Set important Paths
-PROJECT_GIT := git@github.com:Ferch2109/Redes.git
+PROJECT_GIT := https://github.com/Ferch2109/Redes.git
 
 install:
 	git clone $(PROJECT_GIT)
 	cp -r $(DIR_PATH) $(ROOT)
 	rm -rf $(DIR_P)
 	cd $(DIR) &&  echo -e "$(BOLD)installing $(DIR) $(shell python setup.py --version)"
-	mkdir "$(DIR)$(DIR)POKEDEX"
 	echo -e "$(BOLD) Successfully installed.\n Name of directory: $(DIR)"
 	rm "Makefile"
 
