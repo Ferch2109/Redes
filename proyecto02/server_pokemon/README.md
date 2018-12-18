@@ -1,23 +1,27 @@
-ONLY NEED TO DOWNLOAD MAKEFILE TO GET THE SERVER APP
+# ONLY NEED TO DOWNLOAD MAKEFILE TO GET THE CLIENT APP
 
-To install run
+## Installing
+```
 $ make
+```
 
 For more info about makefile run the next command:
 $ make help
 
-To see the documentation run:
-$ firefox DOC/_build/html/index.html
+## Documentation
+```
+$ firefox DOC/html/index.html
+```
 
-Tree directory structure:
+## Tree directory structure:
 
-./server_pokemon
+```
+./
 ├── DOC
 │   ├── _build
 │   │   ├── doctrees
 │   │   │   ├── environment.pickle
-│   │   │   ├── index.doctree
-│   │   │   └── tutorial.doctree
+│   │   │   └── index.doctree
 │   │   └── html
 │   │       ├── .buildinfo
 │   │       ├── genindex.html
@@ -26,40 +30,99 @@ Tree directory structure:
 │   │       ├── search.html
 │   │       ├── searchindex.js
 │   │       ├── _sources
-│   │       │   ├── index.rst.txt
-│   │       │   └── tutorial.rst.txt
-│   │       ├── _static
-│   │       │   ├── ajax-loader.gif
-│   │       │   ├── alabaster.css
-│   │       │   ├── basic.css
-│   │       │   ├── comment-bright.png
-│   │       │   ├── comment-close.png
-│   │       │   ├── comment.png
-│   │       │   ├── custom.css
-│   │       │   ├── doctools.js
-│   │       │   ├── documentation_options.js
-│   │       │   ├── down.png
-│   │       │   ├── down-pressed.png
-│   │       │   ├── file.png
-│   │       │   ├── jquery-3.2.1.js
-│   │       │   ├── jquery.js
-│   │       │   ├── minus.png
-│   │       │   ├── plus.png
-│   │       │   ├── pygments.css
-│   │       │   ├── searchtools.js
-│   │       │   ├── underscore-1.3.1.js
-│   │       │   ├── underscore.js
-│   │       │   ├── up.png
-│   │       │   ├── up-pressed.png
-│   │       │   └── websupport.js
-│   │       └── tutorial.html
+│   │       │   └── index.rst.txt
+│   │       └── _static
+│   │           ├── ajax-loader.gif
+│   │           ├── alabaster.css
+│   │           ├── basic.css
+│   │           ├── comment-bright.png
+│   │           ├── comment-close.png
+│   │           ├── comment.png
+│   │           ├── custom.css
+│   │           ├── doctools.js
+│   │           ├── documentation_options.js
+│   │           ├── down.png
+│   │           ├── down-pressed.png
+│   │           ├── file.png
+│   │           ├── jquery-3.2.1.js
+│   │           ├── jquery.js
+│   │           ├── minus.png
+│   │           ├── plus.png
+│   │           ├── pygments.css
+│   │           ├── searchtools.js
+│   │           ├── underscore-1.3.1.js
+│   │           ├── underscore.js
+│   │           ├── up.png
+│   │           ├── up-pressed.png
+│   │           └── websupport.js
 │   ├── conf.py
+│   ├── html
+│   │   ├── .buildinfo
+│   │   ├── CODES.html
+│   │   ├── .doctrees
+│   │   │   ├── CODES.doctree
+│   │   │   ├── environment.pickle
+│   │   │   ├── index.doctree
+│   │   │   ├── modules.doctree
+│   │   │   ├── server.doctree
+│   │   │   ├── Sfunctions.doctree
+│   │   │   └── states.doctree
+│   │   ├── genindex.html
+│   │   ├── index.html
+│   │   ├── modules.html
+│   │   ├── objects.inv
+│   │   ├── py-modindex.html
+│   │   ├── search.html
+│   │   ├── searchindex.js
+│   │   ├── server.html
+│   │   ├── Sfunctions.html
+│   │   ├── _sources
+│   │   │   ├── CODES.rst.txt
+│   │   │   ├── index.rst.txt
+│   │   │   ├── modules.rst.txt
+│   │   │   ├── server.rst.txt
+│   │   │   ├── Sfunctions.rst.txt
+│   │   │   └── states.rst.txt
+│   │   ├── states.html
+│   │   └── _static
+│   │       ├── ajax-loader.gif
+│   │       ├── basic.css
+│   │       ├── classic.css
+│   │       ├── comment-bright.png
+│   │       ├── comment-close.png
+│   │       ├── comment.png
+│   │       ├── default.css
+│   │       ├── doctools.js
+│   │       ├── documentation_options.js
+│   │       ├── down.png
+│   │       ├── down-pressed.png
+│   │       ├── file.png
+│   │       ├── jquery-3.2.1.js
+│   │       ├── jquery.js
+│   │       ├── minus.png
+│   │       ├── plus.png
+│   │       ├── pygments.css
+│   │       ├── searchtools.js
+│   │       ├── sidebar.js
+│   │       ├── underscore-1.3.1.js
+│   │       ├── underscore.js
+│   │       ├── up.png
+│   │       ├── up-pressed.png
+│   │       └── websupport.js
 │   ├── index.rst
 │   ├── make.bat
 │   ├── Makefile
+│   ├── rst
+│   │   ├── CODES.rst
+│   │   ├── conf.py
+│   │   ├── index.rst
+│   │   ├── modules.rst
+│   │   ├── server.rst
+│   │   ├── Sfunctions.rst
+│   │   ├── states.rst
+│   │   └── _static
 │   ├── _static
-│   ├── _templates
-│   └── tutorial.rst
+│   └── _templates
 ├── Makefile
 ├── README.txt
 ├── server_pokemon
@@ -224,3 +287,5 @@ Tree directory structure:
 │   ├── Sfunctions.py
 │   └── states.py
 └── setup.py
+
+```
