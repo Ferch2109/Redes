@@ -1,11 +1,20 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-ENUMERACIONES
+    package.module
+    ==============
+    CODES.py:
+        Enumerations
+
+    Autors:     Maria Fernanda Gonzalez Chavez y Maria Ximena Lezama Hernandez
+    Email:      fernandagch@ciencias.unam.mx lezama@ciencias.unam.mx"
+    Version     "0.1"
+    :copyright:   2018
 """
 def ERROR(code):
     """
         ENUM: Error Codes
+        :type code: int
         :param code: entry to get the code string corresponding to this code.
         :returns: string.
     """
@@ -20,6 +29,7 @@ def ERROR(code):
 def SESSION(code):
     """
         ENUM: SESSION Codes
+        :type code: int
         :param code: entry to get the code string corresponding to this code.
         :returns: string.
     """
@@ -41,9 +51,13 @@ START = "Ask for a Pokemon to catch it!\n"
 def SERVER(code=0,k = 0, id_pok = "",name = ""):
     """
         ENUM: SERVER Codes
+        :type code: int
         :param code: entry to get the code string corresponding to this code.
+        :type k: int
         :param k: number of attemps to catch the pokemon.
+        :type id_pok: string
         :param id_pok: pokemon's id.
+        :type name: string
         :param name: pokemon's name.
         :returns: string.
     """
@@ -60,6 +74,7 @@ def SERVER(code=0,k = 0, id_pok = "",name = ""):
 def CLIENT(code):
     """
         ENUM: CLIENT Codes
+        :type code: int
         :param code: entry to get the code string corresponding to this code.
         :returns: string.
     """

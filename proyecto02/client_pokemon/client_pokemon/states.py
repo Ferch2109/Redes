@@ -4,10 +4,23 @@ from pickle import dumps, loads
 
 from CODES import ERROR
 
+"""
+    package.module
+    ==============
+    states.py:
+        Automata
+
+    Autors:     Maria Fernanda Gonzalez Chavez y Maria Ximena Lezama Hernandez
+    Email:      fernandagch@ciencias.unam.mx lezama@ciencias.unam.mx"
+    Version     "0.1"
+    :copyright:   2018
+"""
 class Automata:
     """
         AUTOMATON CLASS
+        :type socket: socket
         :param socket: socket through which the communication will be established.
+        :type server: boolean
         :param server: <boolean> indicates if the socket is a server socket.
     """
     def __init__(self, socket, server=False):
@@ -23,6 +36,7 @@ class Automata:
         """
             Represent the function Goto in the automaton.
             Goto(S_{act},code) -> S_{next} or Goto(S0,*/{10}) -> S60
+            :type data: object
             :param data: data to send through the socket.
         """
         if self.server:

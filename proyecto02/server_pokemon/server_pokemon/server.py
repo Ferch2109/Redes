@@ -11,14 +11,16 @@ from Sfunctions import get_pokemon, check_user, pokedex
 from Sfunctions import add_pokemon_to_pokedex
 
 """
-server.py:
-    MAIN PROGRAM
+    package.module
+    ==============
+    server.py:
+        MAIN PROGRAM
+        
+    Autors:     Maria Fernanda Gonzalez Chavez y Maria Ximena Lezama Hernandez
+    Email:      fernandagch@ciencias.unam.mx lezama@ciencias.unam.mx"
+    Copyright   2018
+    Version     "0.1"
 """
-__authora__ = "Maria Fernanda Gonzalez Chavez"
-__authorb__ = "Maria Ximena Lezama Hernandez"
-__email__ = "fernandagch@ciencias.unam.mx lezama@ciencias.unam.mx"
-__copyright__ = "Copyright 2018"
-__version__ = "0.1"
 
 host = "localhost"
 port = 9999

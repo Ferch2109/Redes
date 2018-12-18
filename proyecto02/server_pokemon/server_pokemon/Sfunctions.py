@@ -3,21 +3,27 @@
 from random import randint
 import os
 """
-Sfunctions.py:
-    Auxiliary functions for main program. To get correct format data.
+    package.module
+    ==============
+    Sfunctions.py:
+        Auxiliary functions for main program. To get correct format data.
+        
+    Autors:     Maria Fernanda Gonzalez Chavez y Maria Ximena Lezama Hernandez
+    Email:      fernandagch@ciencias.unam.mx lezama@ciencias.unam.mx"
+    Version     "0.1"
+    :copyright:   2018
 """
-__author__ = "Maria Fernanda Gonzalez Chavez"
-__maintainer__ = "Maria Ximena Lezama Hernandez"
-__email__ = "fernandagch@ciencias.unam.mx lezama@ciencias.unam.mx"
-__copyright__ = "Copyright 2018"
-__version__ = "0.1"
 
 class Pokemon:
     """
         POKEMON CLASS
+        :type id: string
         :param id: pokemon's id.
+        :type name: string
         :param name: pokemon's name.
+        :type capture: int
         :param capture: ratio of capture in percent.
+        :type scurry: int
         :param scurry: pokemon's capacity to go away.
         :returns: pokemon object.
     """
@@ -65,7 +71,9 @@ def get_pokemon():
 def check_user(usr, pwd):
     """
         Check that a user already exists and that the password is correct.
+        :type usr: string
         :param usr: user name.
+        :type pwd: string
         :param pwd: password user.
         :returns: False if the user is not in DB | wrong password.
     """
@@ -81,7 +89,9 @@ def check_user(usr, pwd):
 def add_pokemon_to_pokedex(pokemon, user):
     """
         Save the catched pokemon in the register of the actual user.
+        :type pokemon: object Pokemon
         :param pokemon: obtained string from a Pokemon object.
+        :type user: string
         :param user: user name
     """
     users = open("DB/POKEDEX/"+user+".txt", "a")
@@ -91,6 +101,7 @@ def add_pokemon_to_pokedex(pokemon, user):
 def pokedex(user):
     """
         Return all the pokemons catched by the user.
+        :type user: string
         :param user: user name
         :returns: string of all the pokemons catched by the user.
     """

@@ -8,14 +8,16 @@ from CODES import START, CATCH, MSG, SESSION,PRINCIPAL
 from Cfunctions import save_and_show_image
 
 """
-client.py:
-    MAIN PROGRAM
+    package.module
+    ==============
+    client.py:
+        MAIN PROGRAM
+        
+    Autors:     Maria Fernanda Gonzalez Chavez y Maria Ximena Lezama Hernandez
+    Email:      fernandagch@ciencias.unam.mx lezama@ciencias.unam.mx"
+    Version     "0.1"
+    :copyright:   2018
 """
-__authora__ = "Maria Fernanda Gonzalez Chavez"
-__authorb__ = "Maria Ximena Lezama Hernandez"
-__email__ = "fernandagch@ciencias.unam.mx lezama@ciencias.unam.mx"
-__copyright__ = "Copyright 2018"
-__version__ = "0.1"
 
 #host = "localhost"
 #port = 9999
